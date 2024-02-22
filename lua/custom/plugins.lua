@@ -8,7 +8,7 @@ local plugins = {
         "debugpy",
         "pyright",
         "ruff",
-        "mypy",
+        --"mypy",
         "black",
       },
     },
