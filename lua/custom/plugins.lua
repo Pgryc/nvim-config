@@ -52,6 +52,7 @@ local plugins = {
     dependencies = {
       "mfussenegger/nvim-dap",
       "nvim-dap-ui",
+      "debugpy",
     },
     config = function (_, opts)
       local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
