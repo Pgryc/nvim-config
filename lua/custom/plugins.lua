@@ -26,6 +26,12 @@ local plugins = {
       local dap = require("dap")
       local dapui = require("dapui")
       dapui.setup()
+      dap.listeners.before.attach.dapui_config = function ()
+        dapui.open()
+      end
+      dap.listeners.before.launch.dapui_config = function ()
+        dapui.open()
+      end
       dap.listeners.after.event_intiialized["dapui_config"] = function ()
         dapui.close()
       end
@@ -51,6 +57,7 @@ local plugins = {
     ft = "python",
     dependencies = {
       "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
       "nvim-dap-ui",
       "debugpy",
     },

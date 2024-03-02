@@ -15,6 +15,10 @@ M.dap = {
       end,
       "Open debugging sidebar"
     },
+    ["<leader>dc"] = {
+      "<cmd> DapContinue <CR>",
+      "Start Debugging"
+    },
   },
 }
 M.dap_go = {
