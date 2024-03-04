@@ -8,14 +8,24 @@ local plugins = {
         "debugpy",
         "pyright",
         "ruff",
-        --"mypy",
         "black",
+
+        "eslint-lsp",
+        "typescript-language-server",
+        "prettier",
+        "js-debug-adapter",
       },
     },
   },
   {
     "mfussenegger/nvim-dap",
-    init = function()
+    ft = "javascript",
+    init = function ()
+      require("core.utils").load_mappings"dap"
+      
+    end,
+    config = function ()
+      require("custom.configs.dap")
       require("core.utils").load_mappings("dap")
     end,
   },
@@ -33,7 +43,7 @@ local plugins = {
         dapui.open()
       end
       dap.listeners.after.event_intiialized["dapui_config"] = function ()
-        dapui.close()
+        dapui.open()
       end
       dap.listeners.before.event_terminated["dapui_config"] = function ()
         dapui.close()
@@ -90,6 +100,16 @@ local plugins = {
     },
     opts = function ()
       return require "custom.configs.null-ls-python"
+    end,
+  },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    ft = {
+      "javascript",
+      "typescript",
+    },
+    opts = function ()
+      return require "custom.configs.null-ls-javascript"
     end,
   },
 }

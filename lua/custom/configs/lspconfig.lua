@@ -1,5 +1,6 @@
-local on_attach = require("plugins.configs.lspconfig").on_attach
-local capabilities = require("plugins.configs.lspconfig").capabilities
+local config = require("plugins.configs.lspconfig")
+local on_attach = config.on_attach
+local capabilities = config.capabilities
 
 local lspconfig = require("lspconfig") -- naming collision, should not cause any issues tho
 local util = require "lspconfig/util"
@@ -25,4 +26,14 @@ lspconfig.pyright.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = {"python"},
+}
+
+lspconfig.tsserver.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = {
+    preferences = {
+      disableSuggestions = false,
+    },
+  },
 }
