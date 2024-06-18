@@ -29,6 +29,7 @@ local plugins = {
       require("core.utils").load_mappings("dap")
     end,
   },
+  { "nvim-neotest/nvim-nio" },
   {
     "rcarriga/nvim-dap-ui",
     dependencies = "mfussenegger/nvim-dap",
