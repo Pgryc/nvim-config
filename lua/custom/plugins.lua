@@ -18,6 +18,9 @@ local plugins = {
     },
   },
   {
+    "microsoft/debugpy"
+  },
+  {
     "mfussenegger/nvim-dap",
     ft = "javascript",
     init = function ()
